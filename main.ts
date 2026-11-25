@@ -4,17 +4,22 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const LINE =
-  "My fridge hums all night like a landlord collecting rent, guarding leftovers so old they now qualify for senior discounts in the back.";
+  "My fridge hums all night like a landlord collecting rent, guarding leftovers so old they now qualify for senior discounts at the door.";
 
-const chars = [...LINE].length;
-if (chars < 1 || chars > 200) {
-  throw new Error(
-    `roast line must be 1-200 characters, got ${chars}`,
-  );
+function validateLine(line: string): number {
+  const chars = [...line].length;
+  if (chars < 1 || chars > 200) {
+    throw new Error(
+      `roast line must be 1-200 characters, got ${chars}`,
+    );
+  }
+  if (line.trim().length === 0) {
+    throw new Error("roast line must not be only whitespace");
+  }
+  return chars;
 }
-if (LINE.trim().length === 0) {
-  throw new Error("roast line must not be only whitespace");
-}
+
+const chars = validateLine(LINE);
 
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", LINE, "utf8");
