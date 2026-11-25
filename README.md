@@ -6,6 +6,6 @@
 
 A make.fun entry for the "One Line, One Laugh: Roast Your Fridge" bounty. `main.ts` (Node 22, stdlib only) writes one original 134-character fridge roast to `/output/entry.txt`:
 
-> My fridge hums all night like a landlord collecting rent, guarding leftovers so old they now qualify for senior discounts in the back.
+> My fridge hums all night like a landlord collecting rent, guarding leftovers so old they now qualify for senior discounts at the door.
 
 Run it with `node main.ts`.
